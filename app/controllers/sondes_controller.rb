@@ -1,5 +1,6 @@
 class SondesController < ApplicationController
   before_action :set_sonde, only: [:show, :edit, :update, :destroy]
+  before_action :set_etalons, only: [:new, :edit]
 
   # GET /sondes
   # GET /sondes.json
@@ -71,4 +72,8 @@ class SondesController < ApplicationController
     def sonde_params
       params.require(:sonde).permit(:serie, :modele)
     end
+	
+	def set_etalons
+		@etalons = Etalon.all
+	end
 end

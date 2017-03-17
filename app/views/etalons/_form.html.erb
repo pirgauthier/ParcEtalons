@@ -8,6 +8,11 @@
     <%= f.label :modele, 'Modèle' %>
     <%= f.text_field :modele %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :marque_id, 'Marque' %>
+    <%= f.select(:marque_id, options_from_collection_for_select(@marques, :id, :name)) %>
+  </div>
 
   <%= f.submit :value => 'Enregistrer', :class => 'btn btn-default' %>
 <% end %>

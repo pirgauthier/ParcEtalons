@@ -1,27 +1,18 @@
 <%= form_for(sonde) do |f| %>
-  <% if sonde.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sonde.errors.count, "error") %> prohibited this sonde from being saved:</h2>
-
-      <ul>
-      <% sonde.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :serie %>
     <%= f.text_field :serie %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :modele %>
     <%= f.text_field :modele %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="form-group">
+    <%= f.label :etalon_id, 'Etalons' %>
+    <%= f.select(:etalon_id, options_from_collection_for_select(@etalons, :id, :liste_etalons_pour_select)) %>
   </div>
+
+  <%= f.submit :value => 'Enregistrer', :class => 'btn btn-default' %>
 <% end %>

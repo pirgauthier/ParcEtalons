@@ -1,10 +1,11 @@
 class EtalonsController < ApplicationController
   before_action :set_etalon, only: [:show, :edit, :update, :destroy]
+  before_action :set_marques, only: [:new, :edit]
 
   # GET /etalons
   # GET /etalons.json
   def index
-    @etalons = Etalon.all.includes(:marque)
+    @etalons = Etalon.all.includes(:marque, :sondes)
   end
 
   # GET /etalons/1
@@ -69,6 +70,10 @@ class EtalonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def etalon_params
-      params.require(:etalon).permit(:serie, :modele)
+      params.require(:etalon).permit(:serie, :modele, :marque_id)
     end
+	
+	def set_marques
+	  @marques = Marque.all
+	end
 end

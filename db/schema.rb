@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315160050) do
+ActiveRecord::Schema.define(version: 20170317110406) do
 
   create_table "etalons", force: :cascade do |t|
     t.string   "serie"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170315160050) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sondes", force: :cascade do |t|
+    t.string   "serie"
+    t.string   "modele"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "etalon_id"
+    t.index ["etalon_id"], name: "index_sondes_on_etalon_id"
   end
 
 end
