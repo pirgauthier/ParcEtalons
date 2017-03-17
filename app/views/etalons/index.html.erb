@@ -14,7 +14,7 @@
 
   <tbody>
     <% @etalons.each do |etalon| %>
-      <tr>
+      <tr class="success">
 	    <td class="col-md-3"><%= etalon.modele %></td>
         <td class="col-md-3"><%= etalon.serie %></td>
 		<td class="col-md-3"><%= etalon.marque.name %></td>
@@ -23,7 +23,17 @@
         <td class="col-md-1"><%= link_to 'Modifier', edit_etalon_path(etalon) %></td>
         <td class="col-md-1"><%= link_to 'Supprimer', etalon, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
       </tr>
-	  
+	  <% etalon.sondes.each do|sonde|%>
+	    <tr class="info">
+	      <td class="col-md-3">&nbsp;&nbsp;<%= sonde.modele %></td>
+		  <td class="col-md-3"><%= sonde.serie %></td>
+		  <td class="col-md-3"></td>
+		  
+		  <td class="col-md-1"><%= link_to 'Afficher', sonde %></td>
+          <td class="col-md-1"><%= link_to 'Modifier', edit_sonde_path(sonde) %></td>
+          <td class="col-md-1"><%= link_to 'Supprimer', sonde, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
+	    </tr>
+	  <% end %>
     <% end %>
   </tbody>
 </table>

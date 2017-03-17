@@ -1,17 +1,17 @@
 <%= form_for(sonde) do |f| %>
   <div class="form-group">
-    <%= f.label :serie %>
+    <%= f.label :serie, "Numéro de série" %>
     <%= f.text_field :serie %>
   </div>
 
   <div class="form-group">
-    <%= f.label :modele %>
+    <%= f.label :modele, "Modèle" %>
     <%= f.text_field :modele %>
   </div>
   
   <div class="form-group">
     <%= f.label :etalon_id, 'Etalons' %>
-    <%= f.select(:etalon_id, options_from_collection_for_select(@etalons, :id, :liste_etalons_pour_select)) %>
+    <%= f.select(:etalon_id, options_from_collection_for_select(@etalons, :id, :liste_etalons_mis_en_forme)) %>
   </div>
 
   <%= f.submit :value => 'Enregistrer', :class => 'btn btn-default' %>

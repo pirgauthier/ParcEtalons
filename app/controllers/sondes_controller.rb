@@ -1,11 +1,11 @@
 class SondesController < ApplicationController
   before_action :set_sonde, only: [:show, :edit, :update, :destroy]
-  before_action :set_etalons, only: [:new, :edit]
+  before_action :set_etalons, only: [:new, :edit, :update]
 
   # GET /sondes
   # GET /sondes.json
   def index
-    @sondes = Sonde.all
+    @sondes = Sonde.all.includes(:etalon)
   end
 
   # GET /sondes/1
@@ -29,7 +29,7 @@ class SondesController < ApplicationController
 
     respond_to do |format|
       if @sonde.save
-        format.html { redirect_to @sonde, notice: 'Sonde was successfully created.' }
+        format.html { redirect_to @sonde, notice: 'La Sonde a été créée avec succès.' }
         format.json { render :show, status: :created, location: @sonde }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SondesController < ApplicationController
   def update
     respond_to do |format|
       if @sonde.update(sonde_params)
-        format.html { redirect_to @sonde, notice: 'Sonde was successfully updated.' }
+        format.html { redirect_to @sonde, notice: 'La Sonde a été mise à jour avec succès' }
         format.json { render :show, status: :ok, location: @sonde }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SondesController < ApplicationController
   def destroy
     @sonde.destroy
     respond_to do |format|
-      format.html { redirect_to sondes_url, notice: 'Sonde was successfully destroyed.' }
+      format.html { redirect_to sondes_url, notice: 'La Sonde a été supprimée avec succès.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +70,7 @@ class SondesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sonde_params
-      params.require(:sonde).permit(:serie, :modele)
+      params.require(:sonde).permit(:serie, :modele, :etalon_id)
     end
 	
 	def set_etalons

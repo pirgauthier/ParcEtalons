@@ -2,11 +2,12 @@
 
 <h1>Sondes</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Serie</th>
-      <th>Modele</th>
+      <th>N° de série</th>
+      <th>Modèle</th>
+	  <th>Etalon</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,18 +15,20 @@
   <tbody>
     <% @sondes.each do |sonde| %>
       <tr>
-        <td><%= sonde.serie %></td>
-        <td><%= sonde.modele %></td>
-        <td><%= link_to 'Show', sonde %></td>
-        <td><%= link_to 'Edit', edit_sonde_path(sonde) %></td>
-        <td><%= link_to 'Destroy', sonde, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-md-2"><%= sonde.serie %></td>
+        <td class="col-md-2"><%= sonde.modele %></td>
+		<td class="col-md-5"><%= "#{sonde.etalon.modele} n°#{sonde.etalon.serie}" %></td>
+		
+        <td class="col-md-1"><%= link_to 'Show', sonde %></td>
+        <td class="col-md-1"><%= link_to 'Edit', edit_sonde_path(sonde) %></td>
+        <td class="col-md-1"><%= link_to 'Destroy', sonde, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
 
 
 	  </tr>
     <% end %>
   </tbody>
 </table>
-
+<% puts @sondes.inspect %>
 <br>
 
 <%= link_to 'Ajouter sonde', new_sonde_path %>
