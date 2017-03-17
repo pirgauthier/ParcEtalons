@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Marques</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @marques.each do |marque| %>
+      <tr>
+        <td class="col-md-9"><%= marque.name %></td>
+        <td class="col-md-1"><%= link_to 'Afficher', marque %></td>
+        <td class="col-md-1"><%= link_to 'Modifier', edit_marque_path(marque) %></td>
+        <td class="col-md-1"><%= link_to 'Supprimer', marque, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ajouter Marque', new_marque_path %>

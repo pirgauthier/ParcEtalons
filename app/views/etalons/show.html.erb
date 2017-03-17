@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numéro de Série:</strong>
+  <%= @etalon.serie %>
+</p>
+
+<p>
+  <strong>Modèle:</strong>
+  <%= @etalon.modele %>
+</p>
+
+<%= link_to 'Edit', edit_etalon_path(@etalon) %> |
+<%= link_to 'Back', etalons_path %>

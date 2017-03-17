@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @marque.name %>
+</p>
+
+<%= link_to 'Modifier', edit_marque_path(@marque) %> |
+<%= link_to 'Retour', marques_path %>

@@ -1,0 +1,13 @@
+<%= form_for(etalon) do |f| %>
+  <div class="form-group">
+    <%= f.label :serie, 'Numéro de Série' %>
+    <%= f.text_field :serie %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :modele, 'Modèle' %>
+    <%= f.text_field :modele %>
+  </div>
+
+  <%= f.submit :value => 'Enregistrer', :class => 'btn btn-default' %>
+<% end %>
