@@ -1,0 +1,2 @@
+class Sonde < ApplicationRecord
+end

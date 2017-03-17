@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sondes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serie</th>
+      <th>Modele</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sondes.each do |sonde| %>
+      <tr>
+        <td><%= sonde.serie %></td>
+        <td><%= sonde.modele %></td>
+        <td><%= link_to 'Show', sonde %></td>
+        <td><%= link_to 'Edit', edit_sonde_path(sonde) %></td>
+        <td><%= link_to 'Destroy', sonde, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sonde', new_sonde_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @sonde.serie %>
+</p>
+
+<p>
+  <strong>Modele:</strong>
+  <%= @sonde.modele %>
+</p>
+
+<%= link_to 'Edit', edit_sonde_path(@sonde) %> |
+<%= link_to 'Back', sondes_path %>
